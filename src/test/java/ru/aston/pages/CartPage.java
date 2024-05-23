@@ -28,9 +28,6 @@ public class CartPage {
     }
 
     public List<Integer> getPrices() {
-        System.out.println(driver.findElements(listOfPrice).stream()
-                .map(e -> e.getText())
-                .collect(Collectors.toList()));
         return driver.findElements(listOfPrice).stream()
                 .map(e -> Integer.parseInt(e.getText().replace("₽", "").replace(" ", "").trim()))
                 .collect(Collectors.toList());
@@ -43,7 +40,6 @@ public class CartPage {
     }
 
     public int getTotalPrice() {
-        System.out.println(driver.findElement(totalPrice).getText());
         return Integer.parseInt(driver.findElement(totalPrice).getText().replace("₽", "").trim());
     }
 }
